@@ -6,6 +6,7 @@ from Fuzzifier import Fuzzifier
 
 class PendulumSwingUpFuzzifier(Fuzzifier):
     def define_antecedents(self) -> None:
+        # region angle
         self.angle = ctrl.Antecedent(np.arange(0, 401, 1), 'angle')
 
         self.angle['NLS'] = fuzz.trimf(self.angle.universe, [90, 130, 170])
