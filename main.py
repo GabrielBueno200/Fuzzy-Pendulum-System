@@ -4,12 +4,14 @@ from PendulumSwingUpFuzzifier import PendulumSwingUpFuzzifier
 SWING_UP_OPTION = 1
 STABILIZATION_OPTION = 2
 
-def calculate(fuzzifier: Fuzzifier, angle: float, applied_force: float) -> float:
+
+def calculate(fuzzifier: Fuzzifier, angle: float, input_angular_velocity: float) -> float:
     fuzzifier.plot_antecedents()
     fuzzifier.plot_consequents()
 
-    output = fuzzifier.simulate(angle, applied_force)
+    output = fuzzifier.simulate(angle, input_angular_velocity)
     return output
+
 
 def main():
     print("Simulation options:")
@@ -20,11 +22,12 @@ def main():
 
     # entries
     angle = float(input("\nType an entry angle: "))
-    applied_force = float(input("Type the force to be applied: "))
+    angular_velocity = float(input("Type the angular velocity: "))
 
     if simulation_option == SWING_UP_OPTION:
-        swing_up_output = calculate(PendulumSwingUpFuzzifier(), angle, applied_force)
+        swing_up_output = calculate(PendulumSwingUpFuzzifier(), angle, angular_velocity)
         print(f"Applied force for pendulum swing up: {swing_up_output}")
+
 
 if __name__ == "__main__":
     main()
