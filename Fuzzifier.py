@@ -37,12 +37,12 @@ class Fuzzifier(ABC):
         self.applied_force.view()
         plt.show()
 
-    def simulate(self, angle: float, angular_velocity: float) -> float:
+    def simulate(self, input_angle: float, input_angular_velocity: float) -> float:
         control_system = ctrl.ControlSystem(self.rules)
         simulation = ctrl.ControlSystemSimulation(control_system)
 
-        simulation.input['angle'] = angle
-        simulation.input['angularVelocity'] = angular_velocity
+        simulation.input['angle'] = input_angle
+        simulation.input['angularVelocity'] = input_angular_velocity
         simulation.compute()
 
         applied_force_value = simulation.output['appliedForce']
