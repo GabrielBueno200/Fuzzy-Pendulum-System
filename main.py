@@ -5,11 +5,11 @@ SWING_UP_OPTION = 1
 STABILIZATION_OPTION = 2
 
 
-def calculate(fuzzifier: Fuzzifier, angle: float, input_angular_velocity: float) -> float:
+def calculate(fuzzifier: Fuzzifier, angle: float, angular_velocity: float) -> float:
     fuzzifier.plot_antecedents()
     fuzzifier.plot_consequents()
 
-    output = fuzzifier.simulate(angle, input_angular_velocity)
+    output = fuzzifier.simulate(angle, angular_velocity)
     return output
 
 
