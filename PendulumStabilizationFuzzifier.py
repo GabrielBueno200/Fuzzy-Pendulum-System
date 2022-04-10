@@ -5,11 +5,11 @@ from Fuzzifier import Fuzzifier
 
 
 class PendulumStabilizationFuzzifier(Fuzzifier):
-    def define_antecedents(self):
+    def define_antecedents(self) -> None:
         pass
 
-    def define_consequents(self):
+    def define_consequents(self) -> None:
         pass
 
-    def define_rules(self):
+    def define_rules(self) -> None:
         pass

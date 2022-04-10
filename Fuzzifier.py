@@ -1,8 +1,9 @@
+from abc import ABC, abstractmethod
 import matplotlib.pyplot as plt
 from skfuzzy import control as ctrl
 
 
-class Fuzzifier:
+class Fuzzifier(ABC):
     angle: ctrl.Antecedent
     angular_velocity: ctrl.Antecedent
 
@@ -15,21 +16,24 @@ class Fuzzifier:
         self.define_consequents()
         self.define_rules()
 
-    def define_antecedents(self):
+    @abstractmethod
+    def define_antecedents(self) -> None:
         pass
 
-    def define_consequents(self):
+    @abstractmethod
+    def define_consequents(self) -> None:
         pass
 
-    def define_rules(self):
+    @abstractmethod
+    def define_rules(self) -> None:
         pass
 
-    def plot_antecedents(self):
+    def plot_antecedents(self) -> None:
         self.angle.view()
         self.applied_force.view()
         plt.show()
 
-    def plot_consequents(self):
+    def plot_consequents(self) -> None:
         self.applied_force.view()
         plt.show()
 
@@ -47,7 +51,7 @@ class Fuzzifier:
 
         return applied_force_value
 
-    def plot_simulation(self, simulation: ctrl.ControlSystemSimulation):
+    def plot_simulation(self, simulation: ctrl.ControlSystemSimulation) -> None:
         self.angle.view(simulation)
         self.angular_velocity.view(simulation)
         self.applied_force.view(simulation)

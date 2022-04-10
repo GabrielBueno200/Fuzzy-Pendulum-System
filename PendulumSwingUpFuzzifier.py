@@ -5,7 +5,7 @@ from Fuzzifier import Fuzzifier
 
 
 class PendulumSwingUpFuzzifier(Fuzzifier):
-    def define_antecedents(self):
+    def define_antecedents(self) -> None:
         self.angle = ctrl.Antecedent(np.arange(0, 401, 1), 'angle')
 
         self.angle['NLS'] = fuzz.trimf(self.angle.universe, [90, 130, 170])
@@ -25,7 +25,7 @@ class PendulumSwingUpFuzzifier(Fuzzifier):
         self.angular_velocity['POS'] = fuzz.trapmf(self.angular_velocity.universe, [0, 1, 10, 10])
         # endregion
 
-    def define_consequents(self):
+    def define_consequents(self) -> None:
         self.applied_force = ctrl.Consequent(np.arange(-2, 2, 0.1), 'appliedForce')
 
         self.applied_force['NVVB'] = fuzz.trapmf(self.applied_force.universe, [-6, -6, -4.8, -3.6])
@@ -38,7 +38,7 @@ class PendulumSwingUpFuzzifier(Fuzzifier):
         self.applied_force['PVB'] = fuzz.trimf(self.applied_force.universe, [2.4, 3.6, 4.8])
         self.applied_force['PVVB'] = fuzz.trapmf(self.applied_force.universe, [3.6, 4.8, 6, 6])
 
-    def define_rules(self):
+    def define_rules(self) -> None:
         self.rules = [
             ctrl.Rule(self.angle['NLS'] & self.angular_velocity['POS'], self.applied_force['NB']),
             ctrl.Rule(self.angle['NBS'] & self.angular_velocity['POS'], self.applied_force['Z']),
