@@ -38,8 +38,7 @@ class Fuzzifier(ABC):
         plt.show()
 
     def simulate(self, input_angle: float, input_angular_velocity: float) -> float:
-        control_system = ctrl.ControlSystem(self.rules)
-        simulation = ctrl.ControlSystemSimulation(control_system)
+        simulation = ctrl.ControlSystemSimulation(ctrl.ControlSystem(self.rules))
 
         simulation.input['angle'] = input_angle
         simulation.input['angularVelocity'] = input_angular_velocity
