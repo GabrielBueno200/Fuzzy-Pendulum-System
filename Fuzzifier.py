@@ -1,15 +1,15 @@
 from abc import ABC, abstractmethod
 import matplotlib.pyplot as plt
-from skfuzzy import control as ctrl
+from skfuzzy.control import Antecedent, Consequent, Rule, ControlSystem, ControlSystemSimulation
 
 
 class Fuzzifier(ABC):
-    angle: ctrl.Antecedent
-    angular_velocity: ctrl.Antecedent
+    angle: Antecedent
+    angular_velocity: Antecedent
 
-    applied_force: ctrl.Consequent
+    applied_force: Consequent
 
-    rules: list[ctrl.Rule]
+    rules: list[Rule]
 
     def __init__(self):
         self.define_antecedents()
@@ -38,7 +38,7 @@ class Fuzzifier(ABC):
         plt.show()
 
     def simulate(self, input_angle: float, input_angular_velocity: float) -> float:
-        simulation = ctrl.ControlSystemSimulation(ctrl.ControlSystem(self.rules))
+        simulation = ControlSystemSimulation(ControlSystem(self.rules))
 
         simulation.input['angle'] = input_angle
         simulation.input['angularVelocity'] = input_angular_velocity
@@ -50,7 +50,7 @@ class Fuzzifier(ABC):
 
         return applied_force_value
 
-    def plot_simulation(self, simulation: ctrl.ControlSystemSimulation) -> None:
+    def plot_simulation(self, simulation: ControlSystemSimulation) -> None:
         self.angle.view(simulation)
         self.angular_velocity.view(simulation)
         self.applied_force.view(simulation)
