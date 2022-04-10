@@ -1,4 +1,4 @@
-import Fuzzifier
+from Fuzzifier import Fuzzifier
 from PendulumSwingUpFuzzifier import PendulumSwingUpFuzzifier
 
 SWING_UP_OPTION = 1
