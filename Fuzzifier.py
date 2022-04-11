@@ -28,31 +28,18 @@ class Fuzzifier(ABC):
     def define_rules(self) -> None:
         pass
 
+    @abstractmethod
     def plot_antecedents(self) -> None:
-        self.angle.view()
-        self.applied_force.view()
-        plt.show()
+        pass
 
     def plot_consequents(self) -> None:
         self.applied_force.view()
         plt.show()
 
-    def simulate(self, input_angle: float, input_angular_velocity: float) -> float:
-        simulation = ControlSystemSimulation(ControlSystem(self.rules))
+    @abstractmethod
+    def simulate(self, attrs: list[float]) -> float:
+        pass
 
-        simulation.input['angle'] = input_angle
-        simulation.input['angularVelocity'] = input_angular_velocity
-        simulation.compute()
-
-        applied_force_value = simulation.output['appliedForce']
-
-        self.plot_simulation(simulation)
-
-        return applied_force_value
-
+    @abstractmethod
     def plot_simulation(self, simulation: ControlSystemSimulation) -> None:
-        self.angle.view(simulation)
-        self.angular_velocity.view(simulation)
-        self.applied_force.view(simulation)
-
-        plt.show()
+        pass

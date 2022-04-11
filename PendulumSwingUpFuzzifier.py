@@ -1,6 +1,7 @@
 import numpy as np
 import skfuzzy as fuzz
-from skfuzzy.control import Antecedent, Consequent, Rule
+from matplotlib import pyplot as plt
+from skfuzzy.control import Antecedent, Consequent, Rule, ControlSystemSimulation, ControlSystem
 from Fuzzifier import Fuzzifier
 
 
@@ -49,3 +50,29 @@ class PendulumSwingUpFuzzifier(Fuzzifier):
             Rule(self.angle['PBS'] & self.angular_velocity['NEG'], self.applied_force['Z']),
             Rule(self.angle['PLS'] & self.angular_velocity['NEG'], self.applied_force['PB'])
         ]
+
+    def plot_antecedents(self) -> None:
+        self.angle.view()
+        self.applied_force.view()
+        plt.show()
+
+    def simulate(self, attrs: list[float]) -> float:
+        input_angle,  input_angular_velocity = attrs
+        simulation = ControlSystemSimulation(ControlSystem(self.rules))
+
+        simulation.input['angle'] = input_angle
+        simulation.input['angularVelocity'] = input_angular_velocity
+        simulation.compute()
+
+        applied_force_value = simulation.output['appliedForce']
+
+        self.plot_simulation(simulation)
+
+        return applied_force_value
+
+    def plot_simulation(self, simulation: ControlSystemSimulation) -> None:
+        self.angle.view(simulation)
+        self.angular_velocity.view(simulation)
+        self.applied_force.view(simulation)
+
+        plt.show()
