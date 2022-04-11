@@ -51,6 +51,8 @@ Semiannual project of the subject of Artificial Intelligence and Robotics, taugh
 
 The article <a href="https://www.researchgate.net/publication/228633624_Fuzzy_Control_of_a_Real_Time_Inverted_Pendulum_System">Fuzzy Control of a Real Time Inverted Pendulum System</a> (KIZIR, Selçuk; BINGUL; Zafer; OYZUL, Cuneyt) concepts were used to the algorithm development.
 
+For more details, you can read this article and execute our code.
+
 ## Swing Up
 
 ### Input parameters
@@ -85,12 +87,10 @@ The output membership function is in the figure below
 ```bash
 
 # Clone the repository
-$ git clone https://github.com/WebisD/Arkanoid_Cpp.git
+$ git clone https://github.com/WebisD/Fuzzy-Logic-System.git
 
 # Access the project folder in your terminal / cmd
-$ cd Arkanoid_Cpp
-# Open in Visual Studio 
-
+$ cd Fuzzy-Logic-System-main
 ```
 
 ## 🤖 Authors
