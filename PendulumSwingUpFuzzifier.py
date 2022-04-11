@@ -27,19 +27,6 @@ class PendulumSwingUpFuzzifier(Fuzzifier):
         self.angular_velocity['POS'] = fuzz.trapmf(self.angular_velocity.universe, [0, 1, 10, 10])
         # endregion
 
-    def define_consequents(self) -> None:
-        self.applied_force = Consequent(np.arange(-2, 2, 0.1), 'appliedForce')
-
-        self.applied_force['NVVB'] = fuzz.trapmf(self.applied_force.universe, [-6, -6, -4.8, -3.6])
-        self.applied_force['NVB'] = fuzz.trimf(self.applied_force.universe, [-4.8, -3.6, -2.4])
-        self.applied_force['NB'] = fuzz.trimf(self.applied_force.universe, [-3.6, -2.4, -1.2])
-        self.applied_force['N'] = fuzz.trimf(self.applied_force.universe, [-2.4, -1.2, 0])
-        self.applied_force['Z'] = fuzz.trimf(self.applied_force.universe, [-1.2, 0, 1.2])
-        self.applied_force['P'] = fuzz.trimf(self.applied_force.universe, [0, 1.2, 2.4])
-        self.applied_force['PB'] = fuzz.trimf(self.applied_force.universe, [1.2, 2.4, 3.6])
-        self.applied_force['PVB'] = fuzz.trimf(self.applied_force.universe, [2.4, 3.6, 4.8])
-        self.applied_force['PVVB'] = fuzz.trapmf(self.applied_force.universe, [3.6, 4.8, 6, 6])
-
     def define_rules(self) -> None:
         self.rules = [
             Rule(self.angle['NLS'] & self.angular_velocity['POS'], self.applied_force['NB']),
