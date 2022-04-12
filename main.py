@@ -38,7 +38,7 @@ def main():
         attrs = [angle, angular_velocity, cart_position, cart_velocity]
 
         stabilization_output = calculate(PendulumStabilizationFuzzifier(), attrs)
-        print(f"Applied force for pendulum swing up: {stabilization_output}")
+        print(f"Applied force for pendulum stabilization: {stabilization_output}")
 
 
 if __name__ == "__main__":
