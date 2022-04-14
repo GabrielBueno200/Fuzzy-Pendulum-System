@@ -183,4 +183,10 @@
      ![image](https://user-images.githubusercontent.com/49571908/163294785-ad2bdf42-24a5-4cec-a187-6a4b357de9a0.png)
 
 
-    
+  # Outras aplicações
+  
+  Podemos aplicar a lógica fuzzy em uma [máquina de lavar](https://www.samsung.com/in/support/home-appliances/what-is-fuzzy-logic-in-a-washing-machine/#:~:text=The%20fuzzy%20logic%20checks%20for,if%20an%20imbalance%20is%20detected).
+  
+  Normalmente, a lógica fuzzy controla o processo de lavagem, entrada de água, temperatura da água, tempo de lavagem, desempenho de enxágue e velocidade de centrifugação. Isso otimiza a vida útil da máquina de lavar. Máquinas mais sofisticadas pesam a carga (para não sobrecarregar a máquina de lavar), aconselham sobre a quantidade necessária de detergente, avaliam o tipo de material do pano e a dureza da água e verificam se o detergente é em pó ou líquido. Algumas máquinas até aprendem com a experiência passada, memorizando programas e ajustando-os para minimizar os custos operacionais.
+  
+  A lógica fuzzy verifica a quantidade de sujeira e graxa, a quantidade de sabão e água a serem adicionadas, a direção de rotação e assim por diante. A máquina reequilibra a carga de lavagem para garantir a fiação correta. Caso contrário, reduz a velocidade de rotação se for detectado um desequilíbrio. A distribuição uniforme da carga de lavagem reduz o ruído de centrifugação. A lógica neuro difusa incorpora sensores ópticos para detectar a sujeira na água e um sensor de tecido para detectar o tipo de tecido e ajustar o ciclo de lavagem de acordo.
