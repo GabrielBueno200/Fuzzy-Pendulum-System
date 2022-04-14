@@ -11,7 +11,7 @@ class Fuzzifier(ABC):
 
     applied_force: Consequent
 
-    rules: list[Rule]
+    rules: 'list[Rule]'
 
     def __init__(self):
         self.define_antecedents()
@@ -48,7 +48,7 @@ class Fuzzifier(ABC):
         plt.show()
 
     @abstractmethod
-    def simulate(self, attrs: list[float]) -> float:
+    def simulate(self, attrs: 'list[float]') -> float:
         pass
 
     @abstractmethod

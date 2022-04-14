@@ -47,7 +47,7 @@ class PendulumStabilizationFuzzifier(Fuzzifier):
         self.cart_velocity = Antecedent(np.arange(-1, 1, 0.1), 'cartVelocity')
 
         self.cart_velocity['NEG'] = fuzz.trapmf(self.cart_velocity.universe, [-1, -1, -0.1, 0])
-        self.cart_velocity['Z'] = fuzz.trimf(self.cart_velocity.universe, [-0.1, 0, 0.1])
+        self.cart_velocity['ZERO'] = fuzz.trimf(self.cart_velocity.universe, [-0.1, 0, 0.1])
         self.cart_velocity['POS'] = fuzz.trapmf(self.cart_velocity.universe, [0, 0.1, 1, 1])
         # endregion
 
@@ -56,7 +56,7 @@ class PendulumStabilizationFuzzifier(Fuzzifier):
             Rule(self.cart_position['NBIG'] & self.cart_velocity['NEG'], self.applied_force['PVVB']),
             Rule(self.cart_position['NEG'] & self.cart_velocity['NEG'], self.applied_force['PVB']),
             Rule(self.cart_position['Z'] & self.cart_velocity['NEG'], self.applied_force['PB']),
-            Rule(self.cart_position['Z'] & self.cart_velocity['Z'], self.applied_force['Z']),
+            Rule(self.cart_position['Z'] & self.cart_velocity['ZERO'], self.applied_force['Z']),
             Rule(self.cart_position['Z'] & self.cart_velocity['POS'], self.applied_force['NB']),
             Rule(self.cart_position['POS'] & self.cart_velocity['POS'], self.applied_force['NVB']),
             Rule(self.cart_position['PBIG'] & self.cart_velocity['POS'], self.applied_force['NVVB']),
@@ -106,12 +106,12 @@ class PendulumStabilizationFuzzifier(Fuzzifier):
 
     def plot_antecedents(self) -> None:
         self.angle.view()
-        self.applied_force.view()
+        self.angular_velocity.view()
         self.cart_position.view()
         self.cart_velocity.view()
         plt.show()
 
-    def simulate(self, attrs: list[float]) -> float:
+    def simulate(self, attrs: 'list[float]') -> float:
         input_angle,  input_angular_velocity, input_cart_position, input_cart_velocity = attrs
         simulation = ControlSystemSimulation(ControlSystem(self.rules))
 

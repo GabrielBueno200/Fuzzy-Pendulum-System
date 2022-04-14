@@ -6,7 +6,7 @@ SWING_UP_OPTION = 1
 STABILIZATION_OPTION = 2
 
 
-def calculate(fuzzifier: Fuzzifier, attrs: list[float]) -> float:
+def calculate(fuzzifier: Fuzzifier, attrs: 'list[float]') -> float:
     fuzzifier.plot_antecedents()
     fuzzifier.plot_consequents()
 
@@ -38,7 +38,7 @@ def main():
         attrs = [angle, angular_velocity, cart_position, cart_velocity]
 
         stabilization_output = calculate(PendulumStabilizationFuzzifier(), attrs)
-        print(f"Applied force for pendulum stabilization: {stabilization_output}")
+        print(f"Applied force for pendulum swing up: {stabilization_output}")
 
 
 if __name__ == "__main__":
