@@ -3,7 +3,7 @@
 ## Entradas utilizadas para os resultados a seguir:
 
 ![image](https://user-images.githubusercontent.com/56837996/163509068-543d4703-650d-4b1d-b5ad-27221580245b.png)
-![image](https://user-images.githubusercontent.com/56837996/163509177-51ceb523-4973-4ee6-867e-7ff8be0b6e07.png)
+![image](https://user-images.githubusercontent.com/56837996/163509292-a00bd46c-7241-4067-9d8a-cd29a0183841.png)
 
 
 ## Função de pertinência para as saídas (força aplicada)
