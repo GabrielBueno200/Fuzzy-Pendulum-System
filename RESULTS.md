@@ -2,8 +2,8 @@
 
 ## Entradas utilizadas para os resultados a seguir:
 
-![image](https://user-images.githubusercontent.com/49571908/163293619-01ff7bb3-c3a5-46d0-abff-a41737dbe4bd.png)
-![image](https://user-images.githubusercontent.com/49571908/163294851-f6dccced-16eb-44ac-af80-6ab9b3b83d9d.png)
+![image](https://user-images.githubusercontent.com/56837996/163509068-543d4703-650d-4b1d-b5ad-27221580245b.png)
+![image](https://user-images.githubusercontent.com/56837996/163509177-51ceb523-4973-4ee6-867e-7ff8be0b6e07.png)
 
 
 ## Função de pertinência para as saídas (força aplicada)
